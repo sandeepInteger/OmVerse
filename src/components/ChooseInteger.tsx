@@ -55,31 +55,31 @@ const BrainIcon = () => (
 const cards = [
   {
     icon: <ShieldIcon />,
-    title: "Telecom-First Expertise",
-    subtitle: "Deep domain knowledge across all network layers.",
+    title: "Expert Testing Services",
+    subtitle: "Accurate analysis for construction and infrastructure projects.",
     description:
-      "Deep domain knowledge across all network layers.",
+      "Accurate analysis for construction and infrastructure projects.",
   },
   {
     icon: <ChartIcon />,
-    title: "Rapid Ramp-up",
-    subtitle: "Deploy specialized teams in days, not months.",
+    title: "Fast Report Delivery",
+    subtitle: "Quick testing and reporting for ongoing projects.",
     description:
-      "Deploy specialized teams in days, not months.",
+      "Quick testing and reporting for ongoing projects.",
   },
   {
     icon: <PersonIcon />,
-    title: "Automation Driven",
-    subtitle: "Data-backed insights for smarter deployments.",
+    title: "Advanced Testing Equipment",
+    subtitle: "Modern tools ensuring precise and reliable results.",
     description:
-      "Data-backed insights for smarter deployments.",
+      "Modern tools ensuring precise and reliable results.",
   },
   {
     icon: <BrainIcon />,
-    title: "Execution Focused",
-    subtitle: "We don't just design; we build on the ground.",
+    title: "Field & Lab Support",
+    subtitle: "Complete on-site inspection and laboratory solutions.",
     description:
-      "We don't just design; we build on the ground.",
+      "Complete on-site inspection and laboratory solutions.",
   },
   
 ];
@@ -111,13 +111,13 @@ const ChooseInteger = () => {
             variants={fadeUp}
             className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.05]"
           >
-            Why choose Integer?
+            Why choose OmVerse?
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-slate-500 text-base sm:text-lg max-w-xl leading-relaxed"
           >
-            The Bridge Between Engineering and Field Execution
+            Precision Testing Backed by Engineering Expertise
           </motion.p>
         </motion.div>
 

@@ -5,9 +5,9 @@ import { useEffect, useRef } from "react"
 
 /* ── Data ────────────────────────────────────────────────────────────────── */
 const STATS = [
-  { value: 30,    suffix: "+",  label: "U.S. States",    decimals: 0 },
-  { value: 600,   suffix: "+",  label: "Field Experts",  decimals: 0 },
-  { value: 99.8,  suffix: "%",  label: "Uptime SLA",     decimals: 1 },
+  { value: 900,    suffix: "+",  label: "Projects Completed",    decimals: 0 },
+  { value: 400,   suffix: "+",  label: "Clients Served",  decimals: 0 },
+  { value: 4,  suffix: "+",  label: "Years of Experience",     decimals: 0 },
 ]
 
 /* ── Animated counter ────────────────────────────────────────────────────── */

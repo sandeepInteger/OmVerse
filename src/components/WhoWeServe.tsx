@@ -20,8 +20,8 @@ const stagger = (s = 0.1): Variants => ({
 // ── Data ──────────────────────────────────────────────────────────
 const metrics = [
   {
-    label: "Tier-1 & Regional Operators",
-    description: "Large-scale carrier deployments across fiber, 4G, and 5G networks in major US metros.",
+    label: "Construction Companies",
+    description: "Soil investigation, foundation analysis, and material testing for residential and commercial projects.",
     bg: "bg-[#f0f5c8]",
     iconBg: "bg-[#e2ee9a] text-[#5a7300]",
     icon: (
@@ -31,8 +31,8 @@ const metrics = [
     ),
   },
   {
-    label: "OEMs & Hardware Vendors",
-    description: "Device integration, lab testing, and field validation for leading hardware manufacturers.",
+    label: "Infrastructure Projects",
+    description: "Quality testing solutions for roads, bridges, and large-scale infrastructure development..",
     bg: "bg-white border border-slate-200",
     iconBg: "bg-slate-100 text-slate-500",
     icon: (
@@ -43,8 +43,8 @@ const metrics = [
     ),
   },
   {
-    label: "Neutral Host Operators",
-    description: "DAS, small cell, and shared infrastructure for stadiums, campuses, and transit hubs.",
+    label: "Real Estate Developers",
+    description: "Construction material and soil testing support for safe and reliable building projects.",
     bg: "bg-[#dbeafe]",
     iconBg: "bg-blue-100 text-blue-600",
     icon: (
@@ -54,8 +54,8 @@ const metrics = [
     ),
   },
   {
-    label: "Fiber Network Operators",
-    description: "End-to-end fiber splicing, testing, and commissioning for backbone and last-mile connectivity.",
+    label: "Government Projects",
+    description: "Testing and engineering services for public infrastructure and development works.",
     bg: "bg-[#f1f5f9]",
     iconBg: "bg-slate-200 text-slate-600",
     icon: (
@@ -65,8 +65,8 @@ const metrics = [
     ),
   },
   {
-    label: "Enterprises & Venues",
-    description: "Private LTE, in-building wireless, and data center cabling for enterprise environments.",
+    label: "Contractors & Builders",
+    description: "On-site inspection, quality analysis, and construction material evaluation services.",
     bg: "bg-[#fce7f3]",
     iconBg: "bg-pink-100 text-pink-500",
     icon: (
@@ -76,8 +76,8 @@ const metrics = [
     ),
   },
   {
-    label: "Silicon Developers",
-    description: "Chipset evaluation, protocol testing, and device certification support for R&D teams.",
+    label: "Industrial Projects",
+    description: "Material testing and engineering assessment for factories, industrial plants, and heavy construction projects.",
     bg: "bg-[#dcfce7]",
     iconBg: "bg-emerald-100 text-emerald-600",
     icon: (
@@ -148,7 +148,7 @@ const EfficiencyMetrics = () => (
           variants={fadeUp}
           className="text-gray-400 text-base sm:text-lg max-w-lg"
         >
-          Empowering the world's leading technology and connectivity providers
+         Delivering trusted soil testing, Material testing & Engineering solutions for construction and infrastructure projects.
         </motion.p>
       </motion.div>
 

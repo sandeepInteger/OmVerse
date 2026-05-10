@@ -61,11 +61,10 @@ const offices = [
 ];
 
 const services = [
-  "Wireless Engineering & Field Services",
-  "Fiber Engineering & Splicing",
-  "Data Center Installation",
-  "Tower Installation & Audit",
-  "Chipset & Device Testing",
+  "Soil Testing",
+  "Construction Material Testing",
+  "Ground and Water Detection testing ",
+  "Bitumen Testing",
   "Other / General Inquiry",
 ];
 
@@ -172,14 +171,14 @@ const ContactPage = () => {
           </motion.h1>
           <motion.p variants={fadeUp} className="text-slate-500 text-lg max-w-xl leading-relaxed">
             Whether you need a proposal, have a project in mind, or just want to learn what
-            Integer Telecom can do for your network — we're ready.
+            OmVerse can do for your Buisenss — we're ready.
           </motion.p>
 
           {/* Quick contact pills */}
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-3 mt-2">
             {[
               { icon: "📞", label: "+1 (469) 995-5509",  href: "tel:+14699955509" },
-              { icon: "✉️", label: "info@integertel.com", href: "mailto:info@integertel.com" },
+              { icon: "✉️", label: "info@omverse.com", href: "mailto:info@integertel.com" },
               { icon: "⏱️", label: "Reply in 2–4 hrs",    href: "#" },
             ].map(({ icon, label, href }) => (
               <a key={label} href={href}

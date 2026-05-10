@@ -13,10 +13,10 @@ const fadeUp = (delay = 0) => ({
 
 /* ─── Core values data ───────────────────────────────────────────────────── */
 const VALUES = [
-  { label: "Professionalism", icon: "◈" },
-  { label: "Competitiveness", icon: "◎" },
-  { label: "Excellence",      icon: "◆" },
-  { label: "Integrity",       icon: "◇" },
+  { label: "Accuracy", icon: "◈" },
+  { label: "Quality", icon: "◎" },
+  { label: "Integrity",      icon: "◆" },
+  { label: "Reliability",       icon: "◇" },
   { label: "Innovation",      icon: "◉" },
 ]
 
@@ -98,16 +98,15 @@ export default function VisionMission() {
         {/* Headline */}
         <motion.h2 {...fadeUp(0.08)}
           className="vm-serif text-5xl sm:text-6xl lg:text-[5rem] text-[#0f172a] leading-[1.05] tracking-tight max-w-3xl">
-          Built on{" "}
-          <em className="vm-shimmer not-italic">Purpose.</em>
-          <br />Driven by Excellence.
+          Built on{" "}  
+          <em className="vm-shimmer not-italic">Accuracy.</em>
+          <br />Driven by Quality.
         </motion.h2>
 
         {/* Subline */}
         <motion.p {...fadeUp(0.16)}
           className="vm-sans text-slate-500 text-lg max-w-xl leading-relaxed">
-          The bridge between engineering ambition and real-world impact — every day,
-          across every network.
+          Delivering trusted soil testing, material testing, and engineering solutions that support safer construction and stronger infrastructure projects.
         </motion.p>
       </div>
 
@@ -155,9 +154,7 @@ export default function VisionMission() {
             </div>
 
             <p className="vm-sans text-slate-600 text-base sm:text-[1.07rem] leading-[1.75]">
-              To work hard every day to make{" "}
-              <strong className="font-semibold text-[#0f172a]">Integer Telecom Services</strong>{" "}
-              the most respected products, solutions and services brand in the industry.
+            To become one of the most trusted and respected testing and engineering service providers by delivering accurate analysis, reliable reports, and quality-driven solutions.
             </p>
 
             {/* Bottom accent */}
@@ -219,10 +216,8 @@ export default function VisionMission() {
             </div>
 
             <p className="vm-sans text-slate-600 text-base sm:text-[1.07rem] leading-[1.75]">
-              To deliver telecom engineering excellence through unwavering{" "}
-              <strong className="font-semibold text-[#0f172a]">professionalism</strong> and{" "}
-              <strong className="font-semibold text-[#0f172a]">competitiveness</strong> — building
-              lasting partnerships that drive the industry forward.
+              
+              To provide precise soil and material testing services with <strong className="font-semibold text-[#0f172a]">professionalism</strong>, technical excellence, and a commitment to supporting safe and sustainable construction projects.
             </p>
 
             {/* Bottom accent */}
@@ -284,7 +279,7 @@ export default function VisionMission() {
           {/* Quote text */}
           <p className="vm-serif relative text-2xl sm:text-3xl lg:text-[2.15rem] text-white leading-snug tracking-tight max-w-2xl"
             style={{ textShadow: "0 2px 40px rgba(99,102,241,0.35)" }}>
-            To work hard every day to make Integer Telecom Services the most respected
+            To work hard every day to make OmVerse the most respected
             products, solutions and services brand in the industry.
           </p>
 
@@ -293,7 +288,7 @@ export default function VisionMission() {
             <span className="block h-px w-14"
               style={{ background: "linear-gradient(90deg, transparent, rgba(129,140,248,0.7))" }} />
             <span className="vm-sans text-indigo-300 text-[11px] font-semibold tracking-[0.26em] uppercase">
-              Integer Telecom Services Inc.
+              OmVerse Testing and Engineering Services
             </span>
             <span className="block h-px w-14"
               style={{ background: "linear-gradient(90deg, rgba(129,140,248,0.7), transparent)" }} />

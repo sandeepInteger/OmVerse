@@ -135,24 +135,24 @@ const Hero = () => {
           <div className="flex flex-col gap-2">
             <motion.h1 {...fadeUp(0.12)}
               className="hero-serif text-5xl sm:text-6xl lg:text-[3.8rem] text-[#0f172a] leading-[1.06] tracking-tight m-0">
-              Engineering &amp; Enabling the
+              Building TrustThrough
             </motion.h1>
             <motion.div {...fadeUp(0.22)}>
               <span className="hero-serif hero-shimmer-word text-5xl sm:text-6xl lg:text-[3.8rem] leading-[1.06] tracking-tight">
-                Networks That
+              Accurate Testing
               </span>
               {" "}
               <span className="hero-serif text-5xl sm:text-6xl lg:text-[3.8rem] text-[#0f172a] leading-[1.06] tracking-tight">
-                Power Tomorrow
+              & Engineering Solutions
               </span>
             </motion.div>
           </div>
+             
 
           {/* Subtext */}
           <motion.p {...fadeUp(0.3)}
             className="hero-sans text-[15.5px] leading-[1.75] text-slate-500 max-w-[440px] m-0">
-            Wireless, fiber, chipset, tower, and data center engineering — delivered with
-            precision, speed, and trusted field teams across 30+ U.S. states.
+            OmVerse delivers reliable soil testing, material testing, and construction quality assessment services in Guwahati, Assam. With advanced technology, expert engineers, and precise analysis, we help ensure safer foundations, stronger structures, and successful infrastructure projects.
           </motion.p>
 
           {/* CTAs */}
@@ -161,12 +161,12 @@ const Hero = () => {
               className="hero-cta-primary hero-sans text-white font-semibold text-sm px-7 py-3.5 rounded-xl border-none cursor-pointer"
               style={{ boxShadow: "0 4px 16px rgba(37,99,235,0.25)" }}
             >
-              Request a Proposal
+              Get a Free Quote
             </button>
             <button
               className="hero-cta-ghost hero-sans bg-transparent border-none text-slate-800 font-semibold text-sm flex items-center gap-1.5 py-3 cursor-pointer"
             >
-              Talk to an Expert
+              Explore Our Services
               <svg className="w-4 h-4" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10M9 4l4 4-4 4"/>
               </svg>
@@ -200,7 +200,7 @@ const Hero = () => {
           {/* Domain service chips — telecom verticals */}
           {([
             {
-              label: "5G & Wireless",
+              label: "Soil Testing",
               accent: "#2563eb",
               pos: "top-[6%] left-[-2%]",
               delay: 0.7,
@@ -212,7 +212,7 @@ const Hero = () => {
               ),
             },
             {
-              label: "Fiber Splicing",
+              label: "Construction Material Testing",
               accent: "#6366f1",
               pos: "top-[38%] right-[-4%]",
               delay: 0.85,
@@ -223,7 +223,7 @@ const Hero = () => {
               ),
             },
             {
-              label: "Chipset Testing",
+              label: "Water Quality Testing",
               accent: "#06b6d4",
               pos: "bottom-[24%] right-[-6%]",
               delay: 1.0,
@@ -236,7 +236,7 @@ const Hero = () => {
               ),
             },
             {
-              label: "Tower Install",
+              label: "Core Cutting Testing",
               accent: "#10b981",
               pos: "bottom-[8%] left-[-2%]",
               delay: 1.15,
@@ -248,7 +248,7 @@ const Hero = () => {
               ),
             },
             {
-              label: "Data Center",
+              label: "Soil Resistance Testing",
               accent: "#f59e0b",
               pos: "top-[70%] left-[-5%]",
               delay: 1.3,

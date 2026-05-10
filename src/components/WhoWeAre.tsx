@@ -67,8 +67,8 @@ const FEATURES = [
     accent:      "#2563eb",
     iconBg:      "rgba(37,99,235,0.08)",
     iconBorder:  "rgba(37,99,235,0.18)",
-    title:       "600+ Team Members",
-    description: "A dedicated workforce of engineers and field technicians ready for deployment at a moment's notice.",
+    title:       "Experienced Technical Team",
+    description: "Experienced engineers and field professionals delivering accurate testing services.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -82,8 +82,8 @@ const FEATURES = [
     accent:      "#6366f1",
     iconBg:      "rgba(99,102,241,0.08)",
     iconBorder:  "rgba(99,102,241,0.18)",
-    title:       "Local Presence",
-    description: "Strategic teams embedded in key regional markets to ensure rapid response and local expertise.",
+    title:       "On-Site Support",
+    description: "Quick sample collection and site inspection for construction projects.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -95,8 +95,8 @@ const FEATURES = [
     accent:      "#06b6d4",
     iconBg:      "rgba(6,182,212,0.08)",
     iconBorder:  "rgba(6,182,212,0.18)",
-    title:       "Global Operations",
-    description: "24/7 delivery capabilities leveraging our interconnected hubs in the US, Canada, and India.",
+    title:       "Advanced Testing Solutions",
+    description: "Modern equipment and precise analysis for reliable engineering reports.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
         <circle cx="12" cy="12" r="10"/>
@@ -164,7 +164,7 @@ const SecurityCompliance = () => {
             transition={{ delay: 0.08, duration: 0.68, ease: [0.22, 1, 0.36, 1] }}
             className="sc-serif text-5xl sm:text-6xl text-[#0f172a] leading-[1.06] tracking-tight"
           >
-            Global Scale,{" "}
+            Trusted Testing & 
             <em
               className="not-italic"
               style={{
@@ -173,7 +173,7 @@ const SecurityCompliance = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Local Field Force
+             Engineering Solutions Partner
             </em>
           </motion.h2>
 
@@ -184,8 +184,7 @@ const SecurityCompliance = () => {
             transition={{ delay: 0.16, duration: 0.68, ease: [0.22, 1, 0.36, 1] }}
             className="sc-sans text-slate-500 text-base sm:text-lg max-w-xl leading-relaxed"
           >
-            With a 600+ person delivery team across 30+ U.S. states and operations in the US,
-            Canada, and India — we bridge the gap between high-level engineering and ground-level execution.
+            At OmVerse, we combine technical expertise, advanced testing methods, and field experience to deliver reliable soil testing, material testing, and construction quality solutions across Country. We bridge the gap between engineering precision and on-site execution to support safe and successful infrastructure development.
           </motion.p>
         </div>
 

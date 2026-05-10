@@ -9,8 +9,8 @@ export const NAVBAR_OFFSET_TOP_CLASS = "pt-16 sm:pt-[70px]";
 // ── Route map ────────────────────────────────────────────────────
 const serviceItems = [
   {
-    label: "Wireless Engineering",
-    href: "/services/wireless",
+    label: "Soil Testing ",
+    href: "/",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
         <path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" />
@@ -18,8 +18,8 @@ const serviceItems = [
     ),
   },
   {
-    label: "Fiber Engineering",
-    href: "/services/fiber",
+    label: "Soil Testing ",
+    href: "/contact",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
         <path d="M3 12h4l3-9 4 18 3-9h4" />
@@ -27,8 +27,8 @@ const serviceItems = [
     ),
   },
   {
-    label: "Data Centers",
-    href: "/services/data-center",
+    label: "Construction Material ",
+    href: "/contact",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
         <rect x="2" y="3" width="20" height="4" rx="1" />
@@ -41,8 +41,8 @@ const serviceItems = [
     ),
   },
   {
-    label: "Tower Installation",
-    href: "/services/tower",
+    label: "Ground & Water Detection",
+    href: "/contact",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
         <circle cx="12" cy="12" r="3" />
@@ -53,8 +53,8 @@ const serviceItems = [
     ),
   },
   {
-    label: "Chipset & Testing",
-    href: "/services/chipset",
+    label: "Bitumen Testing",
+    href: "/contact",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
         <rect x="7" y="7" width="10" height="10" rx="1.5" />
@@ -65,7 +65,7 @@ const serviceItems = [
 ];
 
 const mainLinks = [
-  { label: "Products", to: "/products" },
+  { label: "Products", to: "/contact" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -209,7 +209,7 @@ function MobileNavBlock() {
                         stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
-                  <span className="text-slate-900 font-extrabold text-sm">Integer Telecom</span>
+                  <span className="text-slate-900 font-extrabold text-sm">OmVerse</span>
                 </Link>
                 <button onClick={() => setMobileOpen(false)}
                   className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-500 transition-colors">
@@ -360,7 +360,7 @@ const Navbar = () => {
               </div>
               <div className="leading-none">
                 <span className="text-slate-900 font-extrabold text-[15px] tracking-tight block">
-                  Integer Telecom
+                  OmVerse
                 </span>
                 <span className="text-blue-500 text-[10px] font-semibold tracking-widest uppercase">
                   Services Inc.

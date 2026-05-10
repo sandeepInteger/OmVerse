@@ -19,13 +19,13 @@ interface ServiceItem {
 // ── Data ──────────────────────────────────────────────────────────────────────
 const SERVICES: ServiceItem[] = [
   {
-    title: "Wireless Engineering & Field Services",
+    title: "Soil Testing Services",
     points: [
-      "4G/5G Network Design & Optimization",
-      "Site Surveys & RF Performance Testing",
-      "Small Cell & DAS Implementation",
+      "Soil Investigation & Bearing Capacity Analysis",
+      "Foundation Soil Testing & Site Assessment",
+      "Ground Stability & Soil Resistance Evaluation",
     ],
-    label: "Wireless Engineering",
+    label: "Soil Testing",
     gradient: "from-cyan-500 to-blue-600",
     accentFrom: "#06b6d4",
     accentTo: "#2563eb",
@@ -33,13 +33,13 @@ const SERVICES: ServiceItem[] = [
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC-C1pEcNINttyDXMT4WKWhhkJUjasZuFqp67hXcxrBAvbAY8i9aReztLccLQha1-56_gJcvMmBcpfvh7bEx84nx2fjEbIMIw6nJH1p_ha_0M2mR8eDPRK07mmz_QWrzfWXPfLkH8DWqRk0NDlBzaEmj-mAdq7yvTmcyKCcfZI6rTPso7mwGZ8LWenAZq0IgbPx6WeugSnekfMxvldmxR5rpe9yhvmdxxAUUs5xNdlmhapSUavSk2ld6ydBrRk4z1s4f9ZqGMP2zgOA",
   },
   {
-    title: "Fiber Engineering & Splicing",
+    title: "Material Testing Services",
     points: [
-      "OSP/ISP Fiber Path Design",
-      "Precision Fusion Splicing & Testing",
-      "End-to-End Fiber Characterization",
+      "Cement, Steel & Aggregate Quality Testing",
+      "Concrete Strength & Durability Analysis",
+      "Industry Standard Compliance Testing",
     ],
-    label: "Fiber Engineering",
+    label: "Material Testing",
     gradient: "from-violet-500 to-purple-700",
     accentFrom: "#8b5cf6",
     accentTo: "#7e22ce",
@@ -47,13 +47,13 @@ const SERVICES: ServiceItem[] = [
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC8oGrutpL9zl5vIPvEdOGLJt4Rb6vHxNfrb8wgDnMbWf2GhHRgL1CoUHy28FHJRwYacg2waT9CQ0g_W5JR7WLeev7n6Nz9r1JxNKZvLWQs5Ytw0r4-xqoC-c2uWZK4x2KbkEBCRGNRPEq572dN0rWgsEmkmZ7Qf-Cd6Nd_xotm_Qkunq58TuaLVYe9iRYQuwwVER9VxirSJF6JMoOVEVkg4dCuFlk-1dz3h9XE40duCSkyj4y1AsFZHT_rI8kNxJiBX7TtwZU9xMR3",
   },
   {
-    title: "Data Center Installation",
+    title: "Construction Material Testing",
     points: [
-      "Rack, Power & Cooling Infrastructure",
-      "Server & Network Hardware Deployment",
-      "Smart Hands Maintenance Services",
+      "Construction Quality & Structural Material Evaluation",
+      "Core Cutting & Material Performance Testing",
+      "Reliable Analysis for Safe Construction",
     ],
-    label: "Data Center",
+    label: "Construction Material",
     gradient: "from-orange-400 to-rose-500",
     accentFrom: "#fb923c",
     accentTo: "#f43f5e",
@@ -61,13 +61,13 @@ const SERVICES: ServiceItem[] = [
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqhh8lYO6Lb9GrXFTq5O4lQgOKW3FKV0gjPTPDlWv_OPz1lYJicKAKHXLOTWFu0sexbjRHwST3Y4BA8P-QxMVc8gzHLGmZHDFNBt85plo5xLL6ccp5Z1wADDCsueUsM1CJyucrna29Q4i_KujC7D-xcq7nAuUNEgzf1vgc5hPiAa41TUiy2QOdiC9kO1-Q0W8WTG7c4_T4u8NpKTUDskAm4keYocPoOFJTK0DnLmkqAl4a55H4-IK5U_GyGdG5jmZ8g1a_n2ZJBCVp",
   },
   {
-    title: "Tower Installation & Audit",
+    title: "Ground & Water Detection Services",
     points: [
-      "Structural Inspections & Audits",
-      "Antenna & Radio Upgrades",
-      "Microwave Backhaul Engineering",
+      "Underground Water Level Assessment",
+      "Leakage Detection & Thermal Scanning",
+      "Advanced Ground Engineering Solutions",
     ],
-    label: "Tower Installation",
+    label: "Ground & Water Detection",
     gradient: "from-emerald-400 to-teal-600",
     accentFrom: "#34d399",
     accentTo: "#0d9488",
@@ -75,13 +75,13 @@ const SERVICES: ServiceItem[] = [
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCCtF6nvu1MTFXL2spDrv9WuU9nT3KHpgFyz0yF9GvzaUtNaSTHV2z-N6f9rmDg7_A9uteLBpqEMa9fKNR0IsCs88mQFJF5vMbwQDE_Q8OVdSorcUCH2-Oep1WJGoyfUsPokaq815rVYfQ-JR9Wht5RJiLowytsNXUmStOaTcfLerDsHWDkl0HOXXvY4vqawIbcb89r-OuXE9RbY-Pnr81B2UoJ4_blTlv-osv3mFI1ugLwN24Pt-WOAqEsmRDCCcAm-x3Lngk__G8r",
   },
   {
-    title: "Chipset & Device Testing",
+    title: "Bitumen Testing Services",
     points: [
-      "Carrier Acceptance Testing (CAT)",
-      "Field Interoperability Testing (FIT)",
-      "Platform Certification & Validation",
+      "Bitumen Quality & Performance Testing)",
+      "Road Construction Material Evaluation",
+      "Accurate Laboratory Analysis & Reporting",
     ],
-    label: "Device Testing",
+    label: "Bitumen Testing",
     gradient: "from-sky-400 to-indigo-600",
     accentFrom: "#38bdf8",
     accentTo: "#4f46e5",
@@ -166,7 +166,7 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.08 }}
         >
-          Comprehensive Telecom Engineering
+           Testing & Engineering Solutions
         </motion.h2>
 
         <motion.p
@@ -176,8 +176,7 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.16 }}
         >
-          End-to-end engineering services delivered by a field force of 600+ experts
-          across the US, Canada, and India.
+          Reliable soil, material, and construction testing services delivered with precision, advanced equipment, and expert technical support.
         </motion.p>
       </div>
 

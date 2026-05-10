@@ -13,10 +13,10 @@ const stagger: Variants = {
 
 // Stats row
 const stats = [
-  { value: "30+",  label: "US States" },
-  { value: "600+", label: "Field Experts" },
-  { value: "3",    label: "Global Hubs" },
-  { value: "24/7", label: "Operations" },
+  { value: "900+",  label: "Projects Completed" },
+  { value: "400+", label: "Satisfied Clients" },
+  { value: "4+ Years",    label: "Industry Experience" },
+  { value: "24/7", label: "Technical Support" },
 ];
 
 const CTABanner = () => {
@@ -79,9 +79,9 @@ const CTABanner = () => {
               variants={fadeUp}
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] tracking-tight"
             >
-              Ready to accelerate your{" "}
+              Ready to Build Stronger & {" "} 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-                network deployment?
+              Safer Projects?
               </span>
             </motion.h2>
 
@@ -90,9 +90,7 @@ const CTABanner = () => {
               variants={fadeUp}
               className="text-slate-400 text-base leading-relaxed max-w-md"
             >
-              Integer Telecom brings together 600+ certified field engineers and cutting-edge
-              telecom expertise to deliver end-to-end network solutions — on time, on budget,
-              and built to last. From planning to commissioning, we handle it all.
+             OmVerse provides accurate soil testing, material testing, and construction quality analysis with expert technical support and reliable reporting for every stage of your project.
             </motion.p>
 
             {/* Buttons */}

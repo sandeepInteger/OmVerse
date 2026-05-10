@@ -9,15 +9,15 @@ const footerLinks = {
     { label: "Career",  href: "#" },
   ],
   "Social Media": [
-    { label: "LinkedIn",    href: "https://www.linkedin.com/company/integertel/" },
-    { label: "Twitter / X", href: "https://twitter.com/IntegerTelecom" },
-    { label: "Facebook",    href: "https://www.facebook.com/IntegerTelecom/" },
+    { label: "LinkedIn",    href: "https://www.linkedin.com/" },
+    { label: "Twitter / X", href: "https://twitter.com/" },
+    { label: "Facebook",    href: "https://www.facebook.com/" },
   ],
   "Projects": [
-    { label: "Wireless",     href: "#" },
-    { label: "Wireline",     href: "#" },
-    { label: "Data Centers", href: "#" },
-    { label: "Chipset",      href: "#" },
+    { label: "Soil Testing",     href: "#" },
+    { label: "Construction Material Testing",     href: "#" },
+    { label: "Ground & Water Detection Testing ", href: "#" },
+    { label: "Bitumen Testing ",      href: "#" },
   ],
 };
 
@@ -66,9 +66,9 @@ const FacebookIcon = () => (
 );
 
 const socials = [
-  { Icon: XIcon,        href: "https://twitter.com/IntegerTelecom",               label: "X" },
-  { Icon: FacebookIcon, href: "https://www.facebook.com/IntegerTelecom/",          label: "Facebook" },
-  { Icon: LinkedInIcon, href: "https://www.linkedin.com/company/integertel/",      label: "LinkedIn" },
+  { Icon: XIcon,        href: "https://twitter.com/",               label: "X" },
+  { Icon: FacebookIcon, href: "https://www.facebook.com/",          label: "Facebook" },
+  { Icon: LinkedInIcon, href: "https://www.linkedin.com/",      label: "LinkedIn" },
 ];
 
 // ── Footer ───────────────────────────────────────────────────────
@@ -98,7 +98,7 @@ const Footer = () => {
               </div>
               <div>
                 <span className="text-slate-900 font-extrabold text-xl tracking-tight block leading-none">
-                  Integer Telecom
+                  OmVerse
                 </span>
                 <span className="text-blue-500 text-xs font-semibold tracking-widest uppercase">
                   Services Inc.
@@ -108,7 +108,7 @@ const Footer = () => {
 
             {/* Tagline */}
             <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
-              Our goal is not to get the maximum revenue per service — it's to produce world class products and solutions that dramatically change the way technology is perceived.
+            Our goal is not just to deliver testing services — it is to provide accurate engineering solutions that ensure safer construction, stronger foundations, and long-term project reliability.
             </p>
 
             {/* Social icons */}
@@ -135,7 +135,7 @@ const Footer = () => {
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
               </svg>
-              info@integertel.com
+              info@omverse.com
             </a>
           </div>
 
@@ -210,7 +210,7 @@ const Footer = () => {
         {/* ── BOTTOM BAR ── */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-slate-400 text-xs tracking-wider">
-            © 2026 Integer Telecom Services Inc. · All rights reserved.
+            © 2026 OmVerse Services Inc. · All rights reserved.
           </p>
           <div className="flex items-center gap-1">
             <a href="#" className="text-slate-400 text-xs hover:text-blue-600 transition-colors px-3 py-1 rounded-full hover:bg-blue-50">
