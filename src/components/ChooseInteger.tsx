@@ -58,28 +58,28 @@ const cards = [
     title: "Expert Testing Services",
     subtitle: "Accurate analysis for construction and infrastructure projects.",
     description:
-      "Accurate analysis for construction and infrastructure projects.",
+      "Qualified engineers and technicians run every test to the specified IS method and check results before they are reported.",
   },
   {
     icon: <ChartIcon />,
     title: "Fast Report Delivery",
     subtitle: "Quick testing and reporting for ongoing projects.",
     description:
-      "Quick testing and reporting for ongoing projects.",
+      "Clear, well-structured reports delivered on agreed timelines so your project decisions are never held up.",
   },
   {
     icon: <PersonIcon />,
     title: "Advanced Testing Equipment",
     subtitle: "Modern tools ensuring precise and reliable results.",
     description:
-      "Modern tools ensuring precise and reliable results.",
+      "Calibrated laboratory and field equipment, with measurement uncertainty stated for each test in our scope.",
   },
   {
     icon: <BrainIcon />,
     title: "Field & Lab Support",
     subtitle: "Complete on-site inspection and laboratory solutions.",
     description:
-      "Complete on-site inspection and laboratory solutions.",
+      "One partner for sample collection, in-situ tests such as SPT and plate load, and complete laboratory analysis.",
   },
   
 ];
@@ -91,7 +91,7 @@ const ChooseInteger = () => {
   
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-start overflow-hidden bg-gradient-to-b from-blue-200 via-white to-white">
+    <section className="relative w-full flex flex-col items-center justify-start overflow-hidden bg-gradient-to-b from-blue-200 via-white to-white">
 
       {/* Ripple background */}
       <BackgroundRippleEffect />
@@ -123,10 +123,8 @@ const ChooseInteger = () => {
 
         {/* Cards carousel */}
         <CarouselSection cards={cards}/>
-
-        
       </div>
-    </div>
+    </section>
   );
 };
 

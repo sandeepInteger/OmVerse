@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 import { Globe } from "./ui/globe"
 
 /* ── Animation helpers ───────────────────────────────────────────────────── */
@@ -26,7 +27,6 @@ const Hero = () => {
 
       {/* ── Fonts ──────────────────────────────────────────────────────────── */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap');
         .hero-serif { font-family: 'DM Serif Display', Georgia, serif; }
         .hero-sans  { font-family: 'DM Sans', system-ui, sans-serif; }
 
@@ -122,12 +122,7 @@ const Hero = () => {
               <span
                 className="hero-badge-dot w-2 h-2 rounded-full bg-blue-500 shrink-0"
               />
-              Now Scaling in 30+ States
-              <span
-                className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white"
-              >
-                NEW
-              </span>
+              Soil, Material &amp; NDT Testing Laboratory
             </span>
           </motion.div>
 
@@ -135,7 +130,7 @@ const Hero = () => {
           <div className="flex flex-col gap-2">
             <motion.h1 {...fadeUp(0.12)}
               className="hero-serif text-5xl sm:text-6xl lg:text-[3.8rem] text-[#0f172a] leading-[1.06] tracking-tight m-0">
-              Building TrustThrough
+              Building Trust Through
             </motion.h1>
             <motion.div {...fadeUp(0.22)}>
               <span className="hero-serif hero-shimmer-word text-5xl sm:text-6xl lg:text-[3.8rem] leading-[1.06] tracking-tight">
@@ -157,20 +152,22 @@ const Hero = () => {
 
           {/* CTAs */}
           <motion.div {...fadeUp(0.38)} className="flex items-center gap-5 flex-wrap">
-            <button
-              className="hero-cta-primary hero-sans text-white font-semibold text-sm px-7 py-3.5 rounded-xl border-none cursor-pointer"
+            <Link
+              to="/contact"
+              className="hero-cta-primary hero-sans text-white font-semibold text-sm px-7 py-3.5 rounded-xl"
               style={{ boxShadow: "0 4px 16px rgba(37,99,235,0.25)" }}
             >
               Get a Free Quote
-            </button>
-            <button
-              className="hero-cta-ghost hero-sans bg-transparent border-none text-slate-800 font-semibold text-sm flex items-center gap-1.5 py-3 cursor-pointer"
+            </Link>
+            <Link
+              to="/services"
+              className="hero-cta-ghost hero-sans text-slate-800 font-semibold text-sm flex items-center gap-1.5 py-3"
             >
               Explore Our Services
               <svg className="w-4 h-4" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10M9 4l4 4-4 4"/>
               </svg>
-            </button>
+            </Link>
           </motion.div>
 
           
@@ -197,7 +194,7 @@ const Hero = () => {
             <Globe />
           </div>
 
-          {/* Domain service chips — telecom verticals */}
+          {/* Service chips around the globe */}
           {([
             {
               label: "Soil Testing",

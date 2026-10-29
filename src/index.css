@@ -151,3 +151,7 @@
     @apply font-sans;
     }
 }
+/* Display serif used for headings across pages (loaded in index.html). */
+.font-display { font-family: 'DM Serif Display', Georgia, serif; }
+
+html { color-scheme: light; }

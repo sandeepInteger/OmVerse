@@ -1,9 +1,13 @@
 "use client";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence, type Variants, type Transition } from "framer-motion";
-//import WorldMap from "./ui/world-map";
-//import WorldMap from "./ui/WorldMap";
+
+import { SERVICES } from "@/data/services";
+import { OFFICES, SITE } from "@/data/site";
+import { labSummary } from "@/data/labScope";
+import { usePageMeta } from "@/lib/usePageMeta";
 
 // ── EmailJS credentials ───────────────────────────────────────────
 const EMAILJS_SERVICE_ID  = "service_v1b6lls";   // e.g. "service_abc123"
@@ -20,84 +24,39 @@ const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-// ── Offices ───────────────────────────────────────────────────────
-const offices = [
-  {
-    city: "Plano, TX",
-    country: "USA",
-    flag: "🇺🇸",
-    addr: "4200 Mapleshade ln, Ste 100",
-    lat: 33.0198,
-    lng: -96.6989,
-    dot: "bg-blue-500",
-  },
-  {
-    city: "Noida, UP",
-    country: "India",
-    flag: "🇮🇳",
-    addr: "Corporate Park, 3rd Floor",
-    lat: 28.5355,
-    lng: 77.3910,
-    dot: "bg-orange-400",
-  },
-  {
-    city: "Tirupati, AP",
-    country: "India",
-    flag: "🇮🇳",
-    addr: "IIDT Building, Airport Road",
-    lat: 13.6288,
-    lng: 79.4192,
-    dot: "bg-orange-400",
-  },
-  {
-    city: "Hyderabad",
-    country: "India",
-    flag: "🇮🇳",
-    addr: "1st Floor, Gachibowli",
-    lat: 17.4401,
-    lng: 78.3489,
-    dot: "bg-orange-400",
-  },
-];
-
-const services = [
-  "Soil Testing",
-  "Construction Material Testing",
-  "Ground and Water Detection testing ",
-  "Bitumen Testing",
-  "Other / General Inquiry",
-];
+const services = [...SERVICES.map((s) => s.label), "Other / General Inquiry"];
 
 // ── Field ─────────────────────────────────────────────────────────
 const Field = ({
   label, name, type = "text", placeholder, required = true,
-  as = "input", options,
+  as = "input", options, defaultValue,
 }: {
   label: string; name: string; type?: string; placeholder?: string;
-  required?: boolean; as?: "input" | "textarea" | "select"; options?: string[];
+  required?: boolean; as?: "input" | "textarea" | "select"; options?: string[]; defaultValue?: string;
 }) => {
+  const id = `contact-${name}`;
   const [focused, setFocused] = useState(false);
   const base = "w-full bg-white border rounded-xl px-4 text-sm text-slate-800 placeholder:text-slate-400 outline-none transition-all duration-200";
   const ring = focused ? "border-blue-400 ring-2 ring-blue-100 shadow-sm" : "border-slate-200";
 
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="text-xs font-semibold text-slate-500 tracking-wide uppercase">
+      <label htmlFor={id} className="text-xs font-semibold text-slate-500 tracking-wide uppercase">
         {label}{required && <span className="text-blue-500 ml-0.5">*</span>}
       </label>
       {as === "textarea" ? (
-        <textarea name={name} placeholder={placeholder} rows={4} required={required}
+        <textarea id={id} name={name} placeholder={placeholder} rows={4} required={required}
           onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
           className={`${base} ${ring} py-3 resize-none`} />
       ) : as === "select" ? (
-        <select name={name} required={required}
+        <select id={id} name={name} required={required} defaultValue={defaultValue ?? ""}
           onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
           className={`${base} ${ring} h-11 cursor-pointer`}>
           <option value="">Select a service…</option>
           {options?.map((o) => <option key={o} value={o}>{o}</option>)}
         </select>
       ) : (
-        <input type={type} name={name} placeholder={placeholder} required={required}
+        <input id={id} type={type} name={name} placeholder={placeholder} required={required}
           onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
           className={`${base} ${ring} h-11`} />
       )}
@@ -107,6 +66,9 @@ const Field = ({
 
 // ── Page ──────────────────────────────────────────────────────────
 const ContactPage = () => {
+  usePageMeta("Contact Us", "Request a quote for soil, material, construction material, ground & water or bitumen testing from OmVerse.");
+  const location = useLocation();
+  const preselectedService = (location.state as { service?: string } | null)?.service;
   const formRef = useRef<HTMLFormElement>(null);
   const [submitting, setSubmitting] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
@@ -164,28 +126,30 @@ const ContactPage = () => {
           </motion.div>
           <motion.h1 variants={fadeUp}
             className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.05]">
-            Let's build{" "}
+            Let's talk about{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
-              something great
+              your project
             </span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-slate-500 text-lg max-w-xl leading-relaxed">
-            Whether you need a proposal, have a project in mind, or just want to learn what
-            OmVerse can do for your Buisenss — we're ready.
+            Whether you need a quote, have a project in mind, or want to know which tests
+            your site needs — our engineers are ready to help.
           </motion.p>
 
           {/* Quick contact pills */}
           <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-3 mt-2">
             {[
-              { icon: "📞", label: "+1 (469) 995-5509",  href: "tel:+14699955509" },
-              { icon: "✉️", label: "info@omverse.com", href: "mailto:info@integertel.com" },
-              { icon: "⏱️", label: "Reply in 2–4 hrs",    href: "#" },
+              { icon: "📞", label: SITE.phone.display, href: SITE.phone.href },
+              { icon: "✉️", label: SITE.email.display, href: SITE.email.href },
             ].map(({ icon, label, href }) => (
               <a key={label} href={href}
                 className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-600 text-sm font-medium px-5 py-2.5 rounded-full shadow-sm hover:border-blue-300 hover:text-blue-600 hover:shadow-md transition-all duration-200">
-                <span>{icon}</span>{label}
+                <span aria-hidden>{icon}</span>{label}
               </a>
             ))}
+            <span className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-600 text-sm font-medium px-5 py-2.5 rounded-full shadow-sm">
+              <span aria-hidden>⏱️</span>{SITE.responseTime}
+            </span>
           </motion.div>
         </motion.div>
 
@@ -207,45 +171,31 @@ const ContactPage = () => {
               <div>
                 <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
                   <span className="w-1 h-1 rounded-full bg-blue-500" />
-                  Our Global Reach
+                  Our Offices
                 </span>
                 <h2 className="text-2xl font-extrabold text-slate-900 leading-snug">
-                  4 locations, one seamless team
+                  {OFFICES.length} locations, one team
                 </h2>
                 <p className="text-slate-400 text-sm mt-1.5 leading-relaxed">
-                  With offices in the US and India, we deliver consistent, high-quality
-                  telecom engineering services across the globe.
+                  Wherever your project is, our field and laboratory teams deliver
+                  consistent, standards-based testing and reporting.
                 </p>
               </div>
 
-              <div className="relative w-full rounded-2xl overflow-hidden bg-[#f0f6ff]">
-                <div className="absolute inset-0 z-10 pointer-events-none rounded-2xl"
-                  style={{ background: `radial-gradient(ellipse at center, transparent 40%, #f0f6ff 78%)` }} />
-                {/**<WorldMap
-                  dots={mapDots}
-                  lineColor="#3b82f6"
-                  backgroundColor="#f0f6ff"
-                  dotColor="#1e40af20"
-                  offices={offices.map(({ city, country, flag, lat, lng }) => ({
-                    city, country, flag, lat, lng,
-                  }))}
-                /> */}
-              </div>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {offices.map(({ city, country, flag, addr, dot }) => (
+                {OFFICES.map(({ city, country, address }) => (
                   <div key={city}
                     className="flex items-start gap-3 bg-slate-50 border border-slate-100 rounded-2xl p-4 hover:border-blue-200 hover:bg-blue-50/40 transition-all duration-200 group">
-                    <div className="flex flex-col items-center gap-1.5 mt-0.5 shrink-0">
-                      <span className="text-lg leading-none">{flag}</span>
-                      <div className={`w-1.5 h-1.5 rounded-full ${dot}`} />
-                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 mt-0.5 text-blue-500 shrink-0" aria-hidden>
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                      <circle cx="12" cy="9" r="2.5" />
+                    </svg>
                     <div>
                       <p className="text-slate-900 text-sm font-bold leading-none mb-0.5 group-hover:text-blue-600 transition-colors">
                         {city}
                       </p>
                       <p className="text-blue-500 text-xs font-semibold">{country}</p>
-                      <p className="text-slate-400 text-xs mt-1 leading-relaxed">{addr}</p>
+                      <p className="text-slate-500 text-xs mt-1 leading-relaxed">{address[0]}</p>
                     </div>
                   </div>
                 ))}
@@ -253,9 +203,9 @@ const ContactPage = () => {
 
               <div className="grid grid-cols-3 gap-4 pt-5 border-t border-slate-100">
                 {[
-                  { v: "30+",  l: "US States"  },
-                  { v: "600+", l: "Experts"     },
-                  { v: "24/7", l: "Operations"  },
+                  { v: String(labSummary.tests), l: "Tests in scope" },
+                  { v: String(labSummary.standards), l: "IS / DIN standards" },
+                  { v: String(labSummary.siteTests), l: "On-site tests" },
                 ].map(({ v, l }) => (
                   <div key={l} className="flex flex-col gap-0.5">
                     <span className="text-2xl font-extrabold text-slate-900 leading-none">{v}</span>
@@ -282,7 +232,7 @@ const ContactPage = () => {
                   Send us a message
                 </h2>
                 <p className="text-slate-400 text-sm mb-8">
-                  Fill out the form and our team will get back to you within 24 hours.
+                  Fill out the form and our team will get back to you shortly.
                 </p>
 
                 <AnimatePresence mode="wait">
@@ -316,10 +266,11 @@ const ContactPage = () => {
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <Field label="Email" name="email" type="email" placeholder="john@company.com" />
-                        <Field label="Phone" name="phone" type="tel"   placeholder="+1 (555) 000-0000" required={false} />
+                        <Field label="Phone" name="phone" type="tel"   placeholder="Your phone number" required={false} />
                       </div>
                       <Field label="Company" name="company" placeholder="Your company name" required={false} />
-                      <Field label="Service of Interest" name="service" as="select" options={services} />
+                      <Field label="Service of Interest" name="service" as="select" options={services}
+                        defaultValue={services.includes(preselectedService ?? "") ? preselectedService : undefined} />
                       <Field label="Project Details" name="message" as="textarea"
                         placeholder="Tell us about your project, timeline, location, and any specific requirements…" />
 

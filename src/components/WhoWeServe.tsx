@@ -106,13 +106,6 @@ const MetricCard = ({ label, description, bg, iconBg, icon }: (typeof metrics)[0
       <p className="text-xs text-slate-500 leading-relaxed">{description}</p>
     </div>
 
-    {/* Arrow */}
-    <div className="mt-auto flex items-center gap-1 text-xs font-semibold text-slate-400 group-hover:text-blue-500 transition-colors duration-200">
-      Learn more
-      <svg viewBox="0 0 16 16" fill="none" className="w-3 h-3 group-hover:translate-x-0.5 transition-transform duration-200">
-        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </div>
   </motion.div>
 );
 

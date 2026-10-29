@@ -1,57 +1,60 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Footer from "./components/Footer";
 import Navbar, { NAVBAR_OFFSET_TOP_CLASS } from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import LandingPage from "./components/LandingPage";
-import ContactPage from "./components/ContactPage";
-import ServicesPage from "./components/ServicesPage";
 
-import WirelessServicesPage from "./components/WirelessPage";
-import FiberEngineeringPage from "./components/FiberEngineeringPage";
+// Inner pages are split into their own chunks so the home page loads faster.
+const AboutPage = lazy(() => import("./components/Aboutpage"));
+const ContactPage = lazy(() => import("./components/ContactPage"));
+const LabScopePage = lazy(() => import("./components/LabScopePage"));
+const NotFoundPage = lazy(() => import("./components/NotFoundPage"));
+const ServiceDetailPage = lazy(() => import("./components/ServiceDetailPage"));
+const ServicesPage = lazy(() => import("./components/ServicesPage"));
 
-import AboutPage from "./components/Aboutpage"; 
+// Old URLs from the previous site → closest current page.
+const LEGACY_REDIRECTS = [
+  "/products",
+  "/wirelessPage",
+  "/fiberPage",
+  "/dataCenterPage",
+  "/droneTowerPage",
+  "/chipsetPage",
+  "/services/wireless",
+  "/services/fiber",
+  "/services/data-center",
+  "/services/tower",
+  "/services/chipset",
+];
 
-import DataCenterPage from "./components/DataCenterPage";
-
-import DroneTowerAuditPage from "./components/DroneTowerAuditPage";
-import ChipsetTestingPage from "./components/chipsetPage";
-import ProductsPage from "./components/ProductPage";
-
-
-
+const PageFallback = () => <div className="min-h-[70vh]" aria-busy="true" />;
 
 export function App() {
   return (
-   <Router>
+    <Router>
       <ScrollToTop />
       <Navbar />
       <main className={NAVBAR_OFFSET_TOP_CLASS}>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/services/wireless" element={<WirelessServicesPage />} />
-          <Route path="/services/fiber" element={<FiberEngineeringPage />} />
-          <Route path="/services/data-center" element={<DataCenterPage />} />
-          <Route path="/services/tower" element={<DroneTowerAuditPage />} />
-          <Route path="/services/chipset" element={<ChipsetTestingPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          {/* Legacy URLs → new /services/* paths */}
-          <Route path="/wirelessPage" element={<Navigate to="/services/wireless" replace />} />
-          <Route path="/fiberPage" element={<Navigate to="/services/fiber" replace />} />
-          <Route path="/dataCenterPage" element={<Navigate to="/services/data-center" replace />} />
-          <Route path="/droneTowerPage" element={<Navigate to="/services/tower" replace />} />
-          <Route path="/chipsetPage" element={<Navigate to="/services/chipset" replace />} />
-          <Route path="/products" element={<ProductsPage />} />
-          {/*<Route path="/about" element={<Navigate to="/products" replace />} />*/}
-        
-        <Route path="/about" element={<AboutPage />} />
-        
-        </Routes>
+        <Suspense fallback={<PageFallback />}>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            <Route path="/lab-scope" element={<LabScopePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            {LEGACY_REDIRECTS.map((path) => (
+              <Route key={path} path={path} element={<Navigate to="/services" replace />} />
+            ))}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback, type ReactNode } from "react";
 import { motion } from "framer-motion";
 
 const getVisibleCount = () => {
@@ -8,14 +8,18 @@ const getVisibleCount = () => {
   return 3;                               // desktop
 };
 
-const CarouselSection = ({ cards }: { cards: any[] }) => {
+export type CarouselCard = { icon: ReactNode; title: string; subtitle: string; description: string };
+
+const CarouselSection = ({ cards }: { cards: CarouselCard[] }) => {
   const trackRef    = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth]    = useState(360);
   const [visibleCount, setVisible]   = useState(3);
-  const [index, setIndex]            = useState(0);
+  const [rawIndex, setIndex]         = useState(0);
   const gap = 20;
 
   const maxIndex = Math.max(0, cards.length - visibleCount);
+  // Clamp if the visible count grows on resize
+  const index = Math.min(rawIndex, maxIndex);
 
   const measure = useCallback(() => {
     const v = getVisibleCount();
@@ -27,19 +31,16 @@ const CarouselSection = ({ cards }: { cards: any[] }) => {
     }
   }, []);
 
+  // ResizeObserver fires once on observe, so this also handles the initial measurement
   useEffect(() => {
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    if (!trackRef.current) return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(trackRef.current);
+    return () => observer.disconnect();
   }, [measure]);
 
-  // Clamp index if visible count changes (e.g. on resize)
-  useEffect(() => {
-    setIndex((i) => Math.min(i, Math.max(0, cards.length - visibleCount)));
-  }, [visibleCount, cards.length]);
-
-  const prev = () => setIndex((i) => Math.max(0, i - 1));
-  const next = () => setIndex((i) => Math.min(maxIndex, i + 1));
+  const prev = () => setIndex(Math.max(0, index - 1));
+  const next = () => setIndex(Math.min(maxIndex, index + 1));
 
   const translateX = index * (cardWidth + gap);
 

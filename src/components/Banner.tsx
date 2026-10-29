@@ -1,5 +1,9 @@
+import { lazy, Suspense } from "react";
+import { Link } from "react-router-dom";
 import { motion, type Variants, type Transition } from "framer-motion";
-import WorldMap from "./ui/world-map";
+
+// The map pulls in dotted-map (~700 kB of geometry); load it after the page renders.
+const WorldMap = lazy(() => import("./ui/world-map"));
 
 const spring: Transition = { duration: 0.6, ease: "easeOut" };
 const fadeUp: Variants = {
@@ -95,21 +99,21 @@ const CTABanner = () => {
 
             {/* Buttons */}
             <motion.div variants={fadeUp} className="flex items-center gap-4 flex-wrap">
-              <button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm px-7 py-3.5 rounded-full shadow-lg shadow-blue-900/40 hover:shadow-blue-700/40 active:scale-95 transition-all duration-200">
+              <Link to="/contact" className="bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm px-7 py-3.5 rounded-full shadow-lg shadow-blue-900/40 hover:shadow-blue-700/40 active:scale-95 transition-all duration-200">
                 Request a Proposal
-              </button>
-              <button className="border border-slate-600 text-white font-semibold text-sm px-7 py-3.5 rounded-full hover:border-slate-400 hover:bg-white/5 active:scale-95 transition-all duration-200 flex items-center gap-2">
+              </Link>
+              <Link to="/contact" className="border border-slate-600 text-white font-semibold text-sm px-7 py-3.5 rounded-full hover:border-slate-400 hover:bg-white/5 active:scale-95 transition-all duration-200 flex items-center gap-2">
                 Contact Us Today
                 <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
                   <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                 </svg>
-              </button>
+              </Link>
             </motion.div>
 
             {/* Stats strip */}
             <motion.div
               variants={fadeUp}
-              className="grid grid-cols-4 gap-4 pt-4 border-t border-slate-700/60"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-700/60"
             >
               {stats.map(({ value, label }) => (
                 <div key={label} className="flex flex-col gap-0.5">
@@ -121,11 +125,13 @@ const CTABanner = () => {
           </motion.div>
 
           {/* ── RIGHT: Visual ── */}
-           <div className="relative flex-shrink-0 w-64 h-64 hidden lg:flex ...">
-                <div className="relative flex-shrink-0 w-[620px] hidden lg:block self-center">
+           <div className="relative hidden lg:flex flex-1 min-w-0 justify-end">
+                <div className="relative w-full max-w-[560px] self-center">
                  {/* Edge fade mask — blends map into card bg on all 4 sides */}
                     <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: `radial-gradient(ellipse at center, transparent 40%, #0f172a 80%)`}}/>
+                       <Suspense fallback={null}>
                        <WorldMap
+                            dark
                             dots={[
       { start: { lat: 64.2008, lng: -149.4937 }, end: { lat: 34.0522,  lng: -118.2437 } },
       { start: { lat: 64.2008, lng: -149.4937 }, end: { lat: -15.7975, lng: -47.8919  } },
@@ -134,8 +140,8 @@ const CTABanner = () => {
       { start: { lat: 28.6139,  lng: 77.209    }, end: { lat: 43.1332,  lng: 131.9113  } },
       { start: { lat: 28.6139,  lng: 77.209    }, end: { lat: -1.2921,  lng: 36.8219   } },
     ]}
-    
                         />
+                       </Suspense>
                     </div>
                 </div>
             </div>

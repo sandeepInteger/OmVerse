@@ -6,11 +6,11 @@ import ChooseInteger from "./ChooseInteger";
 import Banner from "./Banner";
 import VisionMission from "./VisionMission";
 import Stats from "./Stats";
+import { usePageMeta } from "@/lib/usePageMeta";
 
-
-//import WorldMapHQ from "./ui/WorldMapHQ";
 const LandingPage = ()=>
 {
+    usePageMeta(null);
     return (
         <>
       <Hero/>

@@ -4,91 +4,8 @@ import { useEffect, useState, useCallback } from "react"
 import { Link } from "react-router-dom"
 import { motion, AnimatePresence, type Variants } from "framer-motion"
 
-// ── Types ─────────────────────────────────────────────────────────────────────
-interface ServiceItem {
-  title: string
-  points: string[]
-  label: string
-  gradient: string
-  accentFrom: string
-  accentTo: string
-  href: string
-  image: string
-}
-
-// ── Data ──────────────────────────────────────────────────────────────────────
-const SERVICES: ServiceItem[] = [
-  {
-    title: "Soil Testing Services",
-    points: [
-      "Soil Investigation & Bearing Capacity Analysis",
-      "Foundation Soil Testing & Site Assessment",
-      "Ground Stability & Soil Resistance Evaluation",
-    ],
-    label: "Soil Testing",
-    gradient: "from-cyan-500 to-blue-600",
-    accentFrom: "#06b6d4",
-    accentTo: "#2563eb",
-    href: "/services/wireless",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC-C1pEcNINttyDXMT4WKWhhkJUjasZuFqp67hXcxrBAvbAY8i9aReztLccLQha1-56_gJcvMmBcpfvh7bEx84nx2fjEbIMIw6nJH1p_ha_0M2mR8eDPRK07mmz_QWrzfWXPfLkH8DWqRk0NDlBzaEmj-mAdq7yvTmcyKCcfZI6rTPso7mwGZ8LWenAZq0IgbPx6WeugSnekfMxvldmxR5rpe9yhvmdxxAUUs5xNdlmhapSUavSk2ld6ydBrRk4z1s4f9ZqGMP2zgOA",
-  },
-  {
-    title: "Material Testing Services",
-    points: [
-      "Cement, Steel & Aggregate Quality Testing",
-      "Concrete Strength & Durability Analysis",
-      "Industry Standard Compliance Testing",
-    ],
-    label: "Material Testing",
-    gradient: "from-violet-500 to-purple-700",
-    accentFrom: "#8b5cf6",
-    accentTo: "#7e22ce",
-    href: "/services/fiber",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC8oGrutpL9zl5vIPvEdOGLJt4Rb6vHxNfrb8wgDnMbWf2GhHRgL1CoUHy28FHJRwYacg2waT9CQ0g_W5JR7WLeev7n6Nz9r1JxNKZvLWQs5Ytw0r4-xqoC-c2uWZK4x2KbkEBCRGNRPEq572dN0rWgsEmkmZ7Qf-Cd6Nd_xotm_Qkunq58TuaLVYe9iRYQuwwVER9VxirSJF6JMoOVEVkg4dCuFlk-1dz3h9XE40duCSkyj4y1AsFZHT_rI8kNxJiBX7TtwZU9xMR3",
-  },
-  {
-    title: "Construction Material Testing",
-    points: [
-      "Construction Quality & Structural Material Evaluation",
-      "Core Cutting & Material Performance Testing",
-      "Reliable Analysis for Safe Construction",
-    ],
-    label: "Construction Material",
-    gradient: "from-orange-400 to-rose-500",
-    accentFrom: "#fb923c",
-    accentTo: "#f43f5e",
-    href: "/services/data-center",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqhh8lYO6Lb9GrXFTq5O4lQgOKW3FKV0gjPTPDlWv_OPz1lYJicKAKHXLOTWFu0sexbjRHwST3Y4BA8P-QxMVc8gzHLGmZHDFNBt85plo5xLL6ccp5Z1wADDCsueUsM1CJyucrna29Q4i_KujC7D-xcq7nAuUNEgzf1vgc5hPiAa41TUiy2QOdiC9kO1-Q0W8WTG7c4_T4u8NpKTUDskAm4keYocPoOFJTK0DnLmkqAl4a55H4-IK5U_GyGdG5jmZ8g1a_n2ZJBCVp",
-  },
-  {
-    title: "Ground & Water Detection Services",
-    points: [
-      "Underground Water Level Assessment",
-      "Leakage Detection & Thermal Scanning",
-      "Advanced Ground Engineering Solutions",
-    ],
-    label: "Ground & Water Detection",
-    gradient: "from-emerald-400 to-teal-600",
-    accentFrom: "#34d399",
-    accentTo: "#0d9488",
-    href: "/services/tower",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCCtF6nvu1MTFXL2spDrv9WuU9nT3KHpgFyz0yF9GvzaUtNaSTHV2z-N6f9rmDg7_A9uteLBpqEMa9fKNR0IsCs88mQFJF5vMbwQDE_Q8OVdSorcUCH2-Oep1WJGoyfUsPokaq815rVYfQ-JR9Wht5RJiLowytsNXUmStOaTcfLerDsHWDkl0HOXXvY4vqawIbcb89r-OuXE9RbY-Pnr81B2UoJ4_blTlv-osv3mFI1ugLwN24Pt-WOAqEsmRDCCcAm-x3Lngk__G8r",
-  },
-  {
-    title: "Bitumen Testing Services",
-    points: [
-      "Bitumen Quality & Performance Testing)",
-      "Road Construction Material Evaluation",
-      "Accurate Laboratory Analysis & Reporting",
-    ],
-    label: "Bitumen Testing",
-    gradient: "from-sky-400 to-indigo-600",
-    accentFrom: "#38bdf8",
-    accentTo: "#4f46e5",
-    href: "/services/chipset",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAKzdZGhK4EAXJcf6ef7UraELzIye6Mc-TNzJ8Bk-bJ-CDReydgNjJK8uzXRcHZQYzlSGoqEFC0l43KGcFKERr08T1Ti8spimLvqsDB03wkky2XvItBg1x6vA7mS3oyg7uLLLHMFIZj9mpDHChhK2oR4w7VfQEE0thjuZpbKc9YnrtTNMvYCno7F3hD17YSk6TxzGaP2AsRZUai2GhtWgxAVuzcT2UtwCVLTNHJ33R97C7-4hNVdipWpErKpmgJfBQxJilDj-p8h6VG",
-  },
-]
+import ServiceVisual from "./ServiceVisual"
+import { SERVICES } from "@/data/services"
 
 const AUTO_MS  = 4500
 const ANIM_DUR = 0.45
@@ -134,11 +51,6 @@ const Services = () => {
   const pad = (n: number) => String(n).padStart(2, "0")
 
   return (
-    /*
-     * bg matches site theme: light blue-tinted grid background same as
-     * the "Why choose Integer?" section — white with subtle blue-50 tint
-     * and a dot/grid pattern via background-image.
-     */
     <section
       className="w-full relative overflow-hidden"
       style={{
@@ -181,13 +93,13 @@ const Services = () => {
       </div>
 
       {/* ── Slider ──────────────────────────────────────────────────────────── */}
-      <div className="relative max-w-6xl mx-auto px-20 pb-24">
+      <div className="relative max-w-6xl mx-auto px-6 sm:px-20 pb-24">
 
         {/* Left edge arrow — same circular ghost style as site screenshot */}
         <button
           onClick={() => { prev(); setPaused(true) }}
           aria-label="Previous service"
-          className="group absolute -left-14 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full focus:outline-none transition-all duration-200"
+          className="group absolute left-0 lg:-left-14 hidden sm:flex top-1/2 -translate-y-1/2 z-10 items-center justify-center w-10 h-10 rounded-full focus:outline-none transition-all duration-200"
           style={{
             background:   "rgba(255,255,255,0.07)",
             border:       "1px solid rgba(255,255,255,0.14)",
@@ -207,7 +119,7 @@ const Services = () => {
         <button
           onClick={() => { next(); setPaused(true) }}
           aria-label="Next service"
-          className="group absolute -right-14 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full focus:outline-none transition-all duration-200"
+          className="group absolute right-0 lg:-right-14 hidden sm:flex top-1/2 -translate-y-1/2 z-10 items-center justify-center w-10 h-10 rounded-full focus:outline-none transition-all duration-200"
           style={{
             background:   "rgba(255,255,255,0.07)",
             border:       "1px solid rgba(255,255,255,0.14)",
@@ -281,7 +193,7 @@ const Services = () => {
                 </h3>
 
                 <ul className="flex flex-col gap-4">
-                  {svc.points.map((pt, pi) => (
+                  {svc.highlights.map((pt, pi) => (
                     <motion.li
                       key={pi}
                       className="flex items-start gap-3 text-slate-300 text-base sm:text-lg"
@@ -304,7 +216,7 @@ const Services = () => {
 
                 {/* Read More — client-side route to service detail */}
                 <Link
-                  to={svc.href}
+                  to={`/services/${svc.slug}`}
                   className="group inline-flex items-center gap-2 mt-2 text-sm font-semibold transition-all duration-200 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d1f3c]"
                   style={{ color: svc.accentFrom }}
                 >
@@ -340,28 +252,7 @@ const Services = () => {
                   boxShadow: `0 24px 60px -8px ${svc.accentFrom}44, 0 8px 24px -4px ${svc.accentFrom}22`,
                 }}
               >
-                {/* Image */}
-                <img
-                  src={svc.image}
-                  alt={svc.label}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-
-                
-
-                {/* Label badge — bottom left */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <span
-                    className="text-white text-base font-bold tracking-tight drop-shadow-sm"
-                  >
-                    {svc.label}
-                  </span>
-                  {/* small accent dot */}
-                  <span
-                    className="w-2 h-2 rounded-full shrink-0"
-                    style={{ background: svc.accentFrom }}
-                  />
-                </div>
+                <ServiceVisual service={svc} className="absolute inset-0" />
               </motion.div>
             </AnimatePresence>
           </div>

@@ -11,7 +11,7 @@ const STATS = [
 ]
 
 /* ── Animated counter ────────────────────────────────────────────────────── */
-function Counter({
+export function Counter({
   target, suffix, decimals, delay, inView,
 }: {
   target: number; suffix: string; decimals: number; delay: number; inView: boolean

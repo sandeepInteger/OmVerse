@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, type Variants } from "framer-motion"
+import { labSummary } from "@/data/labScope"
 
 /* ── Variants ────────────────────────────────────────────────────────────── */
 const fadeUp: Variants = {
@@ -19,8 +20,8 @@ const stagger = (t = 0.11): Variants => ({
 /* ── Data ────────────────────────────────────────────────────────────────── */
 const HIGHLIGHTS = [
   {
-    value:  "30+",
-    label:  "US States",
+    value:  `${labSummary.tests}`,
+    label:  "Tests in Lab Scope",
     accent: "#2563eb",
     bg:     "rgba(37,99,235,0.07)",
     border: "rgba(37,99,235,0.14)",
@@ -33,8 +34,8 @@ const HIGHLIGHTS = [
     ),
   },
   {
-    value:  "3",
-    label:  "Global Hubs",
+    value:  `${labSummary.standards}`,
+    label:  "IS / DIN Standards",
     accent: "#6366f1",
     bg:     "rgba(99,102,241,0.07)",
     border: "rgba(99,102,241,0.14)",
@@ -47,8 +48,8 @@ const HIGHLIGHTS = [
     ),
   },
   {
-    value:  "600+",
-    label:  "Field Experts",
+    value:  `${labSummary.siteTests}`,
+    label:  "On-Site Field Tests",
     accent: "#06b6d4",
     bg:     "rgba(6,182,212,0.07)",
     border: "rgba(6,182,212,0.14)",
@@ -108,13 +109,12 @@ const FEATURES = [
 ]
 
 /* ══════════════════════════════════════════════════════════════════════════ */
-const SecurityCompliance = () => {
+const WhoWeAre = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[#f7f9fc]">
 
       {/* ── Fonts ──────────────────────────────────────────────────────────── */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap');
         .sc-serif { font-family: 'DM Serif Display', Georgia, serif; }
         .sc-sans  { font-family: 'DM Sans', system-ui, sans-serif; }
 
@@ -184,7 +184,7 @@ const SecurityCompliance = () => {
             transition={{ delay: 0.16, duration: 0.68, ease: [0.22, 1, 0.36, 1] }}
             className="sc-sans text-slate-500 text-base sm:text-lg max-w-xl leading-relaxed"
           >
-            At OmVerse, we combine technical expertise, advanced testing methods, and field experience to deliver reliable soil testing, material testing, and construction quality solutions across Country. We bridge the gap between engineering precision and on-site execution to support safe and successful infrastructure development.
+            At OmVerse, we combine technical expertise, advanced testing methods, and field experience to deliver reliable soil testing, material testing, and construction quality solutions across India. We bridge the gap between engineering precision and on-site execution to support safe and successful infrastructure development.
           </motion.p>
         </div>
 
@@ -313,4 +313,4 @@ const SecurityCompliance = () => {
   )
 }
 
-export default SecurityCompliance
+export default WhoWeAre

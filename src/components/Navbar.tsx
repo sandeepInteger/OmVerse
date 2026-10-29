@@ -3,80 +3,34 @@ import { createPortal } from "react-dom";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
+import ServiceIcon from "./ServiceIcon";
+import { SERVICES } from "@/data/services";
+import { SITE } from "@/data/site";
+
 /** Top padding for page content: matches the fixed nav row (`h-16 sm:h-[70px]`). */
 export const NAVBAR_OFFSET_TOP_CLASS = "pt-16 sm:pt-[70px]";
 
 // ── Route map ────────────────────────────────────────────────────
-const serviceItems = [
-  {
-    label: "Soil Testing ",
-    href: "/",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-        <path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" />
-      </svg>
-    ),
-  },
-  {
-    label: "Soil Testing ",
-    href: "/contact",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-        <path d="M3 12h4l3-9 4 18 3-9h4" />
-      </svg>
-    ),
-  },
-  {
-    label: "Construction Material ",
-    href: "/contact",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-        <rect x="2" y="3" width="20" height="4" rx="1" />
-        <rect x="2" y="10" width="20" height="4" rx="1" />
-        <rect x="2" y="17" width="20" height="4" rx="1" />
-        <circle cx="18" cy="5" r="0.8" fill="currentColor" />
-        <circle cx="18" cy="12" r="0.8" fill="currentColor" />
-        <circle cx="18" cy="19" r="0.8" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    label: "Ground & Water Detection",
-    href: "/contact",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M5 5l2.5 2.5M19 5l-2.5 2.5M5 19l2.5-2.5M19 19l-2.5-2.5" />
-        <circle cx="4" cy="4" r="1.5" /><circle cx="20" cy="4" r="1.5" />
-        <circle cx="4" cy="20" r="1.5" /><circle cx="20" cy="20" r="1.5" />
-      </svg>
-    ),
-  },
-  {
-    label: "Bitumen Testing",
-    href: "/contact",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-        <rect x="7" y="7" width="10" height="10" rx="1.5" />
-        <path d="M9 7V4M12 7V4M15 7V4M9 17v3M12 17v3M15 17v3M7 9H4M7 12H4M7 15H4M17 9h3M17 12h3M17 15h3" />
-      </svg>
-    ),
-  },
-];
+const serviceItems = SERVICES.map((s) => ({
+  label: s.label,
+  href: `/services/${s.slug}`,
+  icon: <ServiceIcon icon={s.icon} className="w-4 h-4" />,
+}));
 
 const mainLinks = [
-  { label: "Products", to: "/contact" },
+  { label: "About", to: "/about" },
+  { label: "Lab Scope", to: "/lab-scope" },
   { label: "Contact", to: "/contact" },
 ];
+
+const isServicesPath = (pathname: string) => pathname === "/services" || pathname.startsWith("/services/");
 
 function ServicesDropdown() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isServicesActive =
-    location.pathname === "/services" ||
-    serviceItems.some((s) => location.pathname === s.href);
+  const isServicesActive = isServicesPath(location.pathname);
 
   const handleServiceNav = (href: string) => {
     setDropdownOpen(false);
@@ -158,9 +112,7 @@ function MobileNavBlock() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
 
-  const isServicesActive =
-    location.pathname === "/services" ||
-    serviceItems.some((s) => location.pathname === s.href);
+  const isServicesActive = isServicesPath(location.pathname);
 
   useEffect(() => {
     const onResize = () => {
@@ -203,15 +155,10 @@ function MobileNavBlock() {
               >
               <div className="flex items-center justify-between px-5 h-16 border-b border-slate-100">
                 <Link to="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-white">
-                      <path d="M12 2L4 6v5c0 4.97 3.47 9.63 8 10.93C16.53 20.63 20 15.97 20 11V6l-8-4z"
-                        stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
+                  <img src="/logo.png" alt="" className="w-7 h-7" />
                   <span className="text-slate-900 font-extrabold text-sm">OmVerse</span>
                 </Link>
-                <button onClick={() => setMobileOpen(false)}
+                <button onClick={() => setMobileOpen(false)} aria-label="Close menu"
                   className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-500 transition-colors">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
                     <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
@@ -302,12 +249,12 @@ function MobileNavBlock() {
               </div>
 
               <div className="px-5 py-5 border-t border-slate-100 flex flex-col gap-3">
-                <a href="tel:+19725394100"
+                <a href={SITE.phone.href}
                   className="flex items-center justify-center gap-2 text-sm text-slate-500 font-medium py-2.5 rounded-xl border border-slate-200 hover:border-blue-200 hover:text-blue-600 transition-colors">
                   <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
                   </svg>
-                  +1 (972) 539-4100
+                  {SITE.phone.display}
                 </a>
                 <Link to="/contact" onClick={() => setMobileOpen(false)}
                   className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-3 rounded-full text-center shadow-md shadow-blue-500/20 active:scale-95 transition-all duration-200">
@@ -356,7 +303,7 @@ const Navbar = () => {
             {/* ── Logo ── */}
             <Link to="/" className="flex items-center gap-2.5 shrink-0">
               <div className="w-10 h-10 rounded-xl  flex items-center justify-center shadow-lg shadow-blue-500/20">
-                <img src="/logo.png" alt="Logo" className="w-5 h-5" />
+                <img src="/logo.png" alt="" className="w-5 h-5" />
               </div>
               <div className="leading-none">
                 <span className="text-slate-900 font-extrabold text-[15px] tracking-tight block">
@@ -404,13 +351,13 @@ const Navbar = () => {
             {/* ── Desktop CTA ── */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="tel:+19725394100"
+                href={SITE.phone.href}
                 className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-blue-600 transition-colors duration-150 font-medium"
               >
                 <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
                 </svg>
-                +1 (972) 539-4100
+                {SITE.phone.display}
               </a>
               <Link
                 to="/contact"
