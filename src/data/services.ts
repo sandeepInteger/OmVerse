@@ -1,6 +1,6 @@
 import { labTests, type LabTest } from "./labScope";
 
-export type ServiceIconKey = "soil" | "material" | "construction" | "water" | "bitumen";
+export type ServiceIconKey = "soil" | "material" | "construction";
 
 export type Service = {
   slug: string;
@@ -102,54 +102,6 @@ export const SERVICES: Service[] = [
       "Rebound Hammer Test",
       "Ultrasonic Pulse Velocity Tests",
     ],
-  },
-  {
-    slug: "ground-water-detection",
-    title: "Ground & Water Detection Services",
-    label: "Ground & Water Detection",
-    icon: "water",
-    accentFrom: "#34d399",
-    accentTo: "#0d9488",
-    summary: "Groundwater assessment and leakage detection to protect foundations and plan drainage.",
-    intro:
-      "Water is the most common cause of foundation and structural distress. We help you find it before it becomes a problem — establishing groundwater conditions for design and tracing leaks in existing buildings.",
-    highlights: [
-      "Underground Water Level Assessment",
-      "Leakage Detection & Thermal Scanning",
-      "Advanced Ground Engineering Solutions",
-    ],
-    capabilities: [
-      { title: "Groundwater assessment", body: "Water table observation during site investigation to inform foundation and basement design." },
-      { title: "Leakage detection", body: "Locating seepage paths in roofs, basements, tanks and wet areas of existing structures." },
-      { title: "Thermal scanning", body: "Non-invasive thermal imaging to reveal hidden moisture behind finishes." },
-      { title: "Engineering advice", body: "Practical recommendations for dewatering, drainage and waterproofing." },
-    ],
-    applications: ["Basements and underground structures", "Water tanks and reservoirs", "Building maintenance", "Site feasibility studies"],
-    scopeSubGroups: [],
-  },
-  {
-    slug: "bitumen-testing",
-    title: "Bitumen Testing Services",
-    label: "Bitumen Testing",
-    icon: "bitumen",
-    accentFrom: "#38bdf8",
-    accentTo: "#4f46e5",
-    summary: "Bitumen and bituminous mix testing for durable, specification-compliant road construction.",
-    intro:
-      "Road performance depends on the binder. We test bitumen and bituminous materials so contractors and authorities can confirm grade, quality and mix performance before and during paving.",
-    highlights: [
-      "Bitumen Quality & Performance Testing",
-      "Road Construction Material Evaluation",
-      "Accurate Laboratory Analysis & Reporting",
-    ],
-    capabilities: [
-      { title: "Binder properties", body: "Penetration, softening point, ductility and specific gravity to verify bitumen grade." },
-      { title: "Mix evaluation", body: "Binder content and gradation of bituminous mixes sampled from plant or site." },
-      { title: "Road material checks", body: "Aggregate and layer tests that complement binder testing for complete pavement QA." },
-      { title: "Clear reporting", body: "Results reported against the applicable specification for quick acceptance decisions." },
-    ],
-    applications: ["Highway and urban roads", "Airport and industrial pavements", "Contractor QA/QC", "Authority acceptance testing"],
-    scopeSubGroups: [],
   },
 ];
 

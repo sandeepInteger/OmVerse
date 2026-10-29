@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { SITE } from "@/data/site";
 
 const DEFAULT_DESCRIPTION =
-  "OmVerse delivers soil testing, construction material testing, NDT, ground & water detection and bitumen testing with accurate, IS-standard laboratory reports.";
+  "OmVerse delivers soil testing, material testing, construction material testing and NDT with accurate, IS-standard laboratory reports.";
 
 /** Sets the document title and meta description for the current page. */
 export function usePageMeta(title: string | null, description = DEFAULT_DESCRIPTION) {

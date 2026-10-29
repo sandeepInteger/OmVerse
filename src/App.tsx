@@ -27,6 +27,8 @@ const LEGACY_REDIRECTS = [
   "/services/data-center",
   "/services/tower",
   "/services/chipset",
+  "/services/ground-water-detection",
+  "/services/bitumen-testing",
 ];
 
 const PageFallback = () => <div className="min-h-[70vh]" aria-busy="true" />;

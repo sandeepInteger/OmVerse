@@ -22,18 +22,6 @@ const PATHS: Record<ServiceIconKey, React.ReactNode> = {
       <path d="M3 9.3h18M3 14.7h18M9 4v5.3M15 9.3v5.4M9 14.7V20" />
     </>
   ),
-  water: (
-    <>
-      <path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z" />
-      <path d="M9 14.5a3 3 0 003 3" />
-    </>
-  ),
-  bitumen: (
-    <>
-      <path d="M8 21L11 3M16 21L13 3" />
-      <path d="M12 7v2M12 12v2M12 17v2" />
-    </>
-  ),
 };
 
 export default function ServiceIcon({ icon, className = "w-5 h-5" }: { icon: ServiceIconKey; className?: string }) {

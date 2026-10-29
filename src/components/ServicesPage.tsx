@@ -22,7 +22,7 @@ const PROCESS = [
 ];
 
 const ServicesPage = () => {
-  usePageMeta("Services", "Soil, material, construction material, ground & water detection and bitumen testing services from OmVerse.");
+  usePageMeta("Services", "Soil, material and construction material testing services from OmVerse.");
 
   return (
     <div className="w-full bg-[#f8faff]">
@@ -31,7 +31,7 @@ const ServicesPage = () => {
         badge={<Eyebrow>Our Services</Eyebrow>}
         title="Testing & Engineering"
         highlight="Solutions"
-        description="From the soil under your foundation to the bitumen on your road — accurate field and laboratory testing that helps you build safely and to specification."
+        description="From the soil under your foundation to the concrete in your structure — accurate field and laboratory testing that helps you build safely and to specification."
         actions={
           <>
             <Link to="/contact" className={primaryButton}>Get a Free Quote</Link>
@@ -58,7 +58,7 @@ const ServicesPage = () => {
       {/* ── Service cards ─────────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-6 sm:px-10 py-20">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
           variants={stagger}
           initial="hidden"
           whileInView="visible"

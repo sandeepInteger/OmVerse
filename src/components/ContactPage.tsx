@@ -66,7 +66,7 @@ const Field = ({
 
 // ── Page ──────────────────────────────────────────────────────────
 const ContactPage = () => {
-  usePageMeta("Contact Us", "Request a quote for soil, material, construction material, ground & water or bitumen testing from OmVerse.");
+  usePageMeta("Contact Us", "Request a quote for soil, material or construction material testing from OmVerse.");
   const location = useLocation();
   const preselectedService = (location.state as { service?: string } | null)?.service;
   const formRef = useRef<HTMLFormElement>(null);

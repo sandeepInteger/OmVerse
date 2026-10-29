@@ -220,7 +220,7 @@ const Hero = () => {
               ),
             },
             {
-              label: "Water Quality Testing",
+              label: "NDT Testing",
               accent: "#06b6d4",
               pos: "bottom-[24%] right-[-6%]",
               delay: 1.0,
